@@ -52,5 +52,7 @@
         (*array)[size - 1].value = atof(token);
     }
 
+    fclose(file);
+
     return size;
  }
