@@ -1,3 +1,10 @@
+/*******************************************************
+ * @file functions.h
+ * @date 10/12/2026
+ * @brief Holds all definitions needed for the program
+ *        This includes the data structure and functions
+ *******************************************************/
+
 typedef struct 
 {
     int year;
