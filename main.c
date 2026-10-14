@@ -45,9 +45,9 @@ int main(void)
     }
 
     /* Calculate average, minimum, maximum*/
-    average = ave(data, size);
-    minimum = min(data, size);
-    maximum = max(data, size);
+    average = ave(ptrArray, size);
+    minimum = min(ptrArray, size);
+    maximum = max(ptrArray, size);
     /* Print results*/
     printf("Average: %.2f\n", average);
     printf("Minimum: %.2f (Year: %d)\n",

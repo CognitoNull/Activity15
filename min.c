@@ -7,7 +7,7 @@
  * @copyright Copyright (C) 2026 Jonathan Cortes. All rights reserved.
 **********************************************************************************/
 
-#include "funcitons.h"
+#include "functions.h"
 
 dataStruct min(dataStruct *data[], int size)
 {
