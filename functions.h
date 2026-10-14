@@ -4,7 +4,8 @@
  * @brief Holds all definitions needed for the program
  *        This includes the data structure and functions
  *******************************************************/
-
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 typedef struct 
 {
     int year;
@@ -15,3 +16,5 @@ int parseFile(char* fileName, dataStruct** array);
 dataStruct max(dataStruct *data[], int size);
 dataStruct min(dataStruct *data[], int size);
 float ave(dataStruct *data[], int size);
+
+#endif

@@ -8,29 +8,55 @@
 **********************************************************************************/
 
 #include <stdio.h>
-#include <sdlib.h>
+#include <stdlib.h>
 #include "functions.h"
 
 int main(void)
 {
-    FILE *fp;
+    dataStruct *data = NULL;
+    dataStruct **ptrArray;
+    dataStruct minimum, maximum;
+    float average;
+    int size, i;
 
-    fp = fopen("sunspot.dat", "r");
+    /* Read the data and allocate memory*/
+    size = parseFile("sunspot.dat", &data);
 
-    if (fp == NULL) 
+    if (size <= 0)
     {
-        printf("Error opening file. \n");
+        printf("Error reading file.\n");
+        free(data);
         return 1;
     }
-    /* Read the data and allocate memory*/
+/* Allocate array of pointers for compliance between
+    min.c, max.c, ave.c */
+    ptrArray = malloc(size * sizeof(*ptrArray));
+
+    if (ptrArray == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        free(data);
+        return 1;
+    } 
+    
+    for (i = 0; i < size; i++)
+    {
+        ptrArray[i] = &data[i];
+    }
 
     /* Calculate average, minimum, maximum*/
-
+    average = ave(data, size);
+    minimum = min(data, size);
+    maximum = max(data, size);
     /* Print results*/
-
+    printf("Average: %.2f\n", average);
+    printf("Minimum: %.2f (Year: %d)\n",
+            minimum.value, minimum.year);
+    printf("Maximum: %.2f (Year: %d)\n",
+            maximum.value, maximum.year);
     /* Free up the dynamically allocated memory*/
-
-    fclose(fp);
+    free(ptrArray);
+    free(data);
 
     return 0;
 }

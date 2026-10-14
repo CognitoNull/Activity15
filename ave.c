@@ -15,5 +15,5 @@ float ave(dataStruct *data[], int size)
     {
         total += data[i]->value;
     }
-    return total/length;
+    return total/size;
 }
